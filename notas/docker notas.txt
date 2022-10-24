@@ -1,0 +1,45 @@
+Pasos para crear y ejecutar una imagen de mongo en docker:
+1- docker ps 
+   - lista las imagenes del sistema
+2- docker pull mongo
+   - descarga e installa mongo 
+3- docker run -d -p 27017:27017 --name shopping-mongo mongo 
+   - corre mongo en modo detached en el puerto 27017 con el nombre "shopping-mongo" desde la imagen mongo 
+4- docker exec -it shopping-mongo /bin/bash
+   - entra a la consola de mongo
+5- mongosh
+   - lista los comandos de mongo
+6- show dbs
+   - muestra las bases de datos de mongo
+7- use CatalogDb
+   - comando para crear la base de datos CatalogDb
+8- db.createCollection('Products')
+   - crea la coleccion "Products" dentro de la base de datos CatalogDb
+9- db.Products.insertMany([{ 'Name':'Asus Laptop','Category':'Computers', 'Summary':'Summary', 'Description':'Description', 'ImageFile':'ImageFile', 'Price':54.93 }, { 'Name':'HP Laptop','Category':'Computers', 'Summary':'Summary', 'Description':'Description', 'ImageFile':'ImageFile', 'Price':88.93 } ])
+   - en caso que queramos insertar un registro de prueba
+10- db.Products.find({}).pretty()
+    - muestra y define de forma pretty todos los registros dentro de la coleccion Products
+11- db.Products.remove({})
+    - remueve los registros de la coleccion Products
+12- docker-compose -f docker-compose.yml -f docker-compose.override.yml up --build || docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
+    - ejecuta los archivos docker y construye la imagen
+13- docker-compose -f docker-compose.yml -f docker-compose.override.yml down
+    - elimina todas las imagenes pertenecientes al archivo docker en cuestion
+	
+	
+	
+Pasos para crear y ejecutar una imagen de redis en docker:
+1- docker ps 
+   - lista las imagenes del sistema
+2- docker pull redis
+   - descarga e installa redis 
+3- docker run -d -p 6379:6379 --name aspnetrun-redis redis
+   - corre redis en modo detached en el puerto 6379 con el nombre "aspnetrun-redis" desde la imagen redis 
+4- docker exec -it aspnetrun-redis /bin/bash
+   - entra a la consola de redis
+5- redis-cli
+   - permite ejecutar comandos redis en la command line interface
+6- set key value   --- guarda el valor key:value
+   get key         --- obtiene el valor key
+   set name mehmet --- guarda el valor name:mehmet
+   get name        --- obtiene el valor name
