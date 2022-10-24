@@ -43,3 +43,11 @@ Pasos para crear y ejecutar una imagen de redis en docker:
    get key         --- obtiene el valor key
    set name mehmet --- guarda el valor name:mehmet
    get name        --- obtiene el valor name
+   
+   
+   
+Pasos para crear y ejecutar una imagen de postgres en postgres:
+1- docker ps 
+   - lista las imagenes del sistema
+2- docker pull postgres
+   - descarga e installa postgres 
